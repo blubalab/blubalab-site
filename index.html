@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blubalab</title>
+<meta name="description" content="Blubalab is an independent game studio. Our games: Light Merge and Hexa Core: Awakening.">
+<link rel="canonical" href="https://blubalab.com/">
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Blubalab">
+<meta property="og:description" content="Games that glow.">
+<meta property="og:url" content="https://blubalab.com/">
+<meta property="og:image" content="https://blubalab.com/img/og.png">
+<meta name="theme-color" content="#0e101f">
+<style>
+  :root {
+    --bg: #0e101f;
+    --panel: #161933;
+    --panel-border: #2a2f52;
+    --text: #e7eaf5;
+    --muted: #9aa2c0;
+    --dim: #565e80;
+    --accent: #6fd0ff;
+    --amber: #ffc76a;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background:
+      radial-gradient(ellipse 80% 50% at 50% 0%, rgba(111, 208, 255, 0.10), transparent 70%),
+      var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    margin: 0;
+    line-height: 1.6;
+  }
+  a { color: var(--accent); }
+  .wrap {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* Hero */
+  header {
+    text-align: center;
+    padding: 80px 24px 56px;
+  }
+  .mark {
+    width: 84px;
+    height: 84px;
+    filter: drop-shadow(0 0 18px rgba(111, 208, 255, 0.55));
+  }
+  .wordmark {
+    font-size: clamp(2.6rem, 9vw, 4.4rem);
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    margin: 0.25em 0 0;
+    padding-left: 0.14em; /* balances the trailing letter-spacing */
+    color: #fff;
+    text-shadow: 0 0 24px rgba(111, 208, 255, 0.55), 0 0 4px rgba(111, 208, 255, 0.8);
+  }
+  .tagline {
+    color: var(--muted);
+    font-size: 1.15rem;
+    max-width: 520px;
+    margin: 0.4em auto 0;
+  }
+
+  section { padding-bottom: 64px; }
+  h2 {
+    font-size: 0.85rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--dim);
+    text-align: center;
+    margin: 0 0 24px;
+    font-weight: 600;
+  }
+
+  /* Games */
+  .games {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+  }
+  .game {
+    background: var(--panel);
+    border: 1px solid var(--panel-border);
+    border-radius: 18px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .game .banner {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1024 / 500;
+    object-fit: cover;
+    border-bottom: 1px solid var(--panel-border);
+  }
+  .game .body {
+    padding: 20px 22px 24px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+  .game .title {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .game .title img {
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+    flex: 0 0 auto;
+  }
+  .game h3 {
+    margin: 0;
+    font-size: 1.25rem;
+    line-height: 1.25;
+  }
+  .game .genre {
+    color: var(--dim);
+    font-size: 0.85rem;
+  }
+  .game p {
+    color: var(--muted);
+    font-size: 0.95rem;
+    margin: 14px 0 18px;
+    flex: 1;
+  }
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px 16px;
+  }
+  /* Google's badge PNG carries its own transparent padding, so the visible
+     button is a little smaller than this box. */
+  .actions .badge img {
+    display: block;
+    height: 62px;
+    width: auto;
+    margin: -8px -8px -8px -10px;
+  }
+  .actions .link {
+    font-size: 0.92rem;
+    text-decoration: none;
+  }
+  .actions .link:hover { text-decoration: underline; }
+  .soon {
+    display: inline-block;
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--amber);
+    border: 1px solid rgba(255, 199, 106, 0.4);
+    border-radius: 999px;
+    padding: 4px 12px;
+  }
+
+  /* About + contact */
+  .about {
+    text-align: center;
+    color: var(--muted);
+    max-width: 640px;
+    margin: 0 auto;
+  }
+  .about strong { color: var(--text); font-weight: 600; }
+  .contact {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+  .contact a {
+    display: block;
+    background: var(--panel);
+    border: 1px solid var(--panel-border);
+    border-radius: 12px;
+    padding: 18px 20px;
+    text-decoration: none;
+    color: var(--text);
+    transition: border-color 0.15s;
+  }
+  .contact a:hover { border-color: var(--accent); }
+  .contact .label {
+    display: block;
+    color: var(--dim);
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .contact .value { color: var(--accent); word-break: break-all; }
+
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 8px 24px 56px;
+    color: var(--dim);
+    font-size: 0.85rem;
+  }
+  footer a { text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+  footer .sep { margin: 0 0.6em; color: var(--panel-border); }
+</style>
+</head>
+<body>
+
+<header>
+  <img class="mark" src="img/favicon.svg" alt="">
+  <h1 class="wordmark">BLUBALAB</h1>
+  <p class="tagline">Games that glow.</p>
+</header>
+
+<main class="wrap">
+
+  <section id="games">
+    <h2>Our games</h2>
+    <div class="games">
+
+      <article class="game">
+        <img class="banner" src="img/light-merge-feature.webp" alt="Light Merge">
+        <div class="body">
+          <div class="title">
+            <img src="img/light-merge-icon.webp" alt="">
+            <div>
+              <h3>Light Merge</h3>
+              <span class="genre">Drop-and-merge puzzle</span>
+            </div>
+          </div>
+          <p>
+            Drop two identical lights into each other and they merge into a bigger one.
+            Keep going from a tiny Spark up to the Supernova and don't let the pile cross the
+            line.
+          </p>
+          <div class="actions">
+            <a class="badge" href="https://play.google.com/store/apps/details?id=com.blubalab.lightmerge">
+              <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play">
+            </a>
+            <a class="link" href="https://light-merge.blubalab.com/">Website</a>
+            <a class="link" href="https://light-merge.blubalab.com/privacy/">Privacy</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="game">
+        <img class="banner" src="img/hexa-core-feature.webp" alt="Hexa Core: Awakening">
+        <div class="body">
+          <div class="title">
+            <img src="img/hexa-core-icon.webp" alt="">
+            <div>
+              <h3>Hexa Core: Awakening</h3>
+              <span class="genre">Logistics puzzle</span>
+            </div>
+          </div>
+          <p>
+            Clear the fog off a hex map, dig up crystal extractors and connect them with power
+            lines to bring the Core back to life.
+          </p>
+          <div class="actions">
+            <span class="soon">Coming soon to Google Play</span>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section id="about">
+    <h2>About</h2>
+    <p class="about">
+      Blubalab is a small independent studio. Light Merge is out on Google Play, Hexa Core:
+      Awakening is coming next, and we're already working on more games, not only puzzles.
+    </p>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <div class="contact">
+      <a href="mailto:blubalab.games@gmail.com">
+        <span class="label">Email</span>
+        <span class="value">blubalab.games@gmail.com</span>
+      </a>
+      <a href="https://discord.gg/zZQFt7SgR9">
+        <span class="label">Community</span>
+        <span class="value">Join our Discord</span>
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <a href="https://play.google.com/store/apps/developer?id=Blubalab">Blubalab on Google Play</a>
+  <span class="sep">&middot;</span>
+  <a href="/privacy/">Privacy Policy</a>
+  <span class="sep">&middot;</span>
+  &copy; 2026 Blubalab
+</footer>
+
+</body>
+</html>
